@@ -1,43 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
-import Tabla from './componentes/Tabla/tabla';
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Navv from './componentes/Nav/nav'
-import Botones from './boton'
-
-function BasicExample() {
-  return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-  );
-}
+import Botones from './componentes/estudios'
+import Menu from './componentes/nav'
+import Carrusel from './componentes/carrusel'
+import Contacto from './componentes/contacto'
+import Footer from './componentes/footer'
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Inicio from './componentes/inicio'
 
 function App() {
   return (
-    <>
-      <Navv></Navv>
-      <Botones></Botones>
-    </>
+    <div className="App">
+      <Router>
+        <Menu />
+        <Routes>
+          <Route path="/" element={<Inicio />}> </Route>
+          <Route path="/estudios" element={<Botones />}>  </Route>
+          <Route path="/hobbies" element={<Carrusel />}>      </Route>
+          <Route path="/contacto" element={<Contacto />}>      </Route>
+        </Routes>
+      </Router>
+      <Footer />
+    </div>
   );
 }
 
